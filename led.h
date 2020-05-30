@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * @File: led.h
+ * @Author: Kristina Karmanova
+ * @Project: Snake game on LED cube
+ * @Microcontroller: Milandr 1986VE92U
+ * @Purpose: LED managing
+ *******************************************************************************/
+
 #ifndef LED_H 
 #define LED_H 
 
