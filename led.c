@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * @File: led.c
+ * @Author: Kristina Karmanova
+ * @Project: Snake game on LED cube
+ * @Microcontroller: Milandr 1986VE92U
+ * @Purpose: LED managing
+ *******************************************************************************/
+
+
+
 //Подключение заголовочного файла
 #include "led.h"
 
