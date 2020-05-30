@@ -126,16 +126,6 @@ int select_led(int i){
 
 
 
-
-void delay(){
-	    for(uint32_t i = 1000000; i!=0; i--){
-			__NOP;//пустая команда, чтобы компилятор не соптимизировал цикл
-		}
-}
-
-
-
-
 //Процедура последовательного вывода байта информации на порт выхода (побитно)
 void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t val){
 	

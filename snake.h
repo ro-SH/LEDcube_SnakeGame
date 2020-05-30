@@ -62,5 +62,6 @@ bool move_snake(Snake*, Food*, int*);		// Moving snake
 void draw_snake(Snake*);					// Light snake position light-emitting diods
 void draw_food(Food*);						// Light food position light-emitting diod
 int play_snake(void);						// Start new game
+void delay(void);							// Delay
 
 #endif

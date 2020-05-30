@@ -177,7 +177,8 @@ bool move_snake(Snake *snake, Food *food, int *score)
 	}
 	
 	// Wall hit check
-	if (snake->head->x < 0 || snake->head->x >= BOARD_SIZE || snake->head->y < 0 || snake->head->y >= BOARD_SIZE || snake->head->z < 0 || snake->head->z >= BOARD_SIZE)
+	if (snake->head->x < 0 || snake->head->x >= BOARD_SIZE || snake->head->y < 0 || \
+		snake->head->y >= BOARD_SIZE || snake->head->z < 0 || snake->head->z >= BOARD_SIZE)
 		return false;
 	
 	// Self hit check
@@ -254,6 +255,12 @@ int play_snake()
 	}
 	
 	return -1;			// Never happens
+}
+
+void delay() {
+	    for(uint32_t i = 1000000; i!=0; i--){
+			__NOP;//пустая команда, чтобы компилятор не соптимизировал цикл
+		}
 }
 
 bool is_playing = false;

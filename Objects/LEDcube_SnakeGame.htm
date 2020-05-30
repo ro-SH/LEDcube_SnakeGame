@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LEDcube_SnakeGame.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LEDcube_SnakeGame.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat May 30 21:34:17 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sun May 31 01:07:07 2020
 <BR><P>
 <H3>Maximum Stack Usage =        632 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -382,7 +382,7 @@ Global Symbols
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_snake
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -556,7 +556,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[97]"></a>osDelay</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, rtx_delay.o(.text.osDelay))
+<P><STRONG><a name="[96]"></a>osDelay</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, rtx_delay.o(.text.osDelay))
 <BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thread_UpButtonCheck
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thread_SelectButtonCheck
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thread_RightButtonCheck
@@ -565,7 +565,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[a8]"></a>osKernelGetState</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, rtx_kernel.o(.text.osKernelGetState), UNUSED, KEPT)
-<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_kernel_is_active
+<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_kernel_is_active
 </UL>
 
 <P><STRONG><a name="[92]"></a>osKernelInitialize</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, rtx_kernel.o(.text.osKernelInitialize))
@@ -573,7 +573,7 @@ Global Symbols
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTOS_Init
 </UL>
 
-<P><STRONG><a name="[95]"></a>osKernelStart</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, rtx_kernel.o(.text.osKernelStart))
+<P><STRONG><a name="[94]"></a>osKernelStart</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, rtx_kernel.o(.text.osKernelStart))
 <BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTOS_Init
 </UL>
 
@@ -587,17 +587,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxTimerTick
 </UL>
 
-<P><STRONG><a name="[9b]"></a>osMutexAcquire</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, rtx_mutex.o(.text.osMutexAcquire), UNUSED, KEPT)
+<P><STRONG><a name="[9a]"></a>osMutexAcquire</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, rtx_mutex.o(.text.osMutexAcquire), UNUSED, KEPT)
 <BR><BR>[Called By]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_acquire
 </UL>
 
-<P><STRONG><a name="[9c]"></a>osMutexDelete</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, rtx_mutex.o(.text.osMutexDelete), UNUSED, KEPT)
+<P><STRONG><a name="[9b]"></a>osMutexDelete</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, rtx_mutex.o(.text.osMutexDelete), UNUSED, KEPT)
 <BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_free
 </UL>
 
-<P><STRONG><a name="[94]"></a>osMutexNew</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, rtx_mutex.o(.text.osMutexNew))
+<P><STRONG><a name="[9c]"></a>osMutexNew</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, rtx_mutex.o(.text.osMutexNew), UNUSED, KEPT)
 <BR><BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_initialize
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTOS_Init
 </UL>
 
 <P><STRONG><a name="[9d]"></a>osMutexRelease</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, rtx_mutex.o(.text.osMutexRelease), UNUSED, KEPT)
@@ -891,7 +890,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ClearPage
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_snake
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thread_SelectButtonCheck
 </UL>
 
@@ -947,7 +946,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutSymbol
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_snake
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1029,12 +1028,11 @@ Global Symbols
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ClearPage
 </UL>
 
-<P><STRONG><a name="[91]"></a>RTOS_Init</STRONG> (Thumb, 166 bytes, Stack size 184 bytes, rtos.o(i.RTOS_Init))
+<P><STRONG><a name="[91]"></a>RTOS_Init</STRONG> (Thumb, 156 bytes, Stack size 184 bytes, rtos.o(i.RTOS_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = RTOS_Init &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadNew
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelInitialize
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
@@ -1042,7 +1040,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[96]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 130 bytes, Stack size 12 bytes, system_mdr32f9qx.o(i.SystemCoreClockUpdate))
+<P><STRONG><a name="[95]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 130 bytes, Stack size 12 bytes, system_mdr32f9qx.o(i.SystemCoreClockUpdate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SystemCoreClockUpdate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
@@ -1051,25 +1049,25 @@ Global Symbols
 <P><STRONG><a name="[22]"></a>SystemInit</STRONG> (Thumb, 54 bytes, Stack size 4 bytes, system_mdr32f9qx.o(i.SystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SystemInit &rArr; SystemCoreClockUpdate
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mdr32f9qx.o(.text)
 </UL>
 <P><STRONG><a name="[26]"></a>Thread_DownButtonCheck</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, btn.o(i.Thread_DownButtonCheck))
-<BR><BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_direction
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<BR><BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_direction
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtos.o(i.RTOS_Init)
 </UL>
 <P><STRONG><a name="[29]"></a>Thread_LeftButtonCheck</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, btn.o(i.Thread_LeftButtonCheck))
-<BR><BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_direction
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<BR><BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_direction
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtos.o(i.RTOS_Init)
 </UL>
 <P><STRONG><a name="[2a]"></a>Thread_RightButtonCheck</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, btn.o(i.Thread_RightButtonCheck))
-<BR><BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_direction
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<BR><BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_direction
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtos.o(i.RTOS_Init)
 </UL>
@@ -1077,43 +1075,43 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 632 + Unknown Stack Size
 <LI>Call Chain = Thread_SelectButtonCheck &rArr; play_snake &rArr; move_snake &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ClearString
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtos.o(i.RTOS_Init)
 </UL>
 <P><STRONG><a name="[27]"></a>Thread_UpButtonCheck</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, btn.o(i.Thread_UpButtonCheck))
-<BR><BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_direction
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<BR><BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_direction
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtos.o(i.RTOS_Init)
 </UL>
 <P><STRONG><a name="[2d]"></a>_mutex_acquire</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, rtx_lib.o(i._mutex_acquire), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _mutex_acquire &rArr; os_kernel_is_active
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_kernel_is_active
+<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_kernel_is_active
 </UL>
 
 <P><STRONG><a name="[2e]"></a>_mutex_free</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, rtx_lib.o(i._mutex_free), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _mutex_free
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexDelete
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexDelete
 </UL>
 
 <P><STRONG><a name="[2f]"></a>_mutex_initialize</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, rtx_lib.o(i._mutex_initialize), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _mutex_initialize
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxErrorNotify
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
 </UL>
 
 <P><STRONG><a name="[30]"></a>_mutex_release</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, rtx_lib.o(i._mutex_release), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _mutex_release &rArr; os_kernel_is_active
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_kernel_is_active
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_kernel_is_active
 </UL>
 
 <P><STRONG><a name="[3e]"></a>_platform_post_stackheap_init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, rtx_lib.o(i._platform_post_stackheap_init))
@@ -1129,11 +1127,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_registers
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 </UL>
 
-<P><STRONG><a name="[aa]"></a>delay</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, led.o(i.delay))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<P><STRONG><a name="[aa]"></a>delay</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, snake.o(i.delay))
+<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 </UL>
 
 <P><STRONG><a name="[a0]"></a>draw_food</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, snake.o(i.draw_food))
@@ -1141,7 +1139,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;switch_on
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 </UL>
 
 <P><STRONG><a name="[a2]"></a>draw_snake</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, snake.o(i.draw_snake))
@@ -1149,7 +1147,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;switch_on
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 </UL>
 
 <P><STRONG><a name="[a3]"></a>generate_food</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, snake.o(i.generate_food))
@@ -1158,11 +1156,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_snake
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 </UL>
 
 <P><STRONG><a name="[a9]"></a>init_snake</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, snake.o(i.init_snake))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 </UL>
 
 <P><STRONG><a name="[42]"></a>main</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, main.o(i.main))
@@ -1188,7 +1186,7 @@ Global Symbols
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutString
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_snake
 </UL>
 
 <P><STRONG><a name="[62]"></a>osRtxErrorNotify</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, rtx_config.o(i.osRtxErrorNotify))
@@ -1200,7 +1198,7 @@ Global Symbols
 
 <P><STRONG><a name="[e2]"></a>osRtxIdleThread</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rtx_config.o(i.osRtxIdleThread), UNUSED)
 
-<P><STRONG><a name="[99]"></a>play_snake</STRONG> (Thumb, 152 bytes, Stack size 464 bytes, snake.o(i.play_snake))
+<P><STRONG><a name="[98]"></a>play_snake</STRONG> (Thumb, 152 bytes, Stack size 464 bytes, snake.o(i.play_snake))
 <BR><BR>[Stack]<UL><LI>Max Depth = 632 + Unknown Stack Size
 <LI>Call Chain = play_snake &rArr; move_snake &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1228,7 +1226,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;switch_on
 </UL>
 
-<P><STRONG><a name="[98]"></a>set_direction</STRONG> (Thumb, 226 bytes, Stack size 0 bytes, snake.o(i.set_direction))
+<P><STRONG><a name="[97]"></a>set_direction</STRONG> (Thumb, 226 bytes, Stack size 0 bytes, snake.o(i.set_direction))
 <BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thread_UpButtonCheck
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thread_RightButtonCheck
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thread_LeftButtonCheck
@@ -1263,7 +1261,7 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[9a]"></a>os_kernel_is_active</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, rtx_lib.o(i.os_kernel_is_active), UNUSED, KEPT)
+<P><STRONG><a name="[99]"></a>os_kernel_is_active</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, rtx_lib.o(i.os_kernel_is_active), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = os_kernel_is_active
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelGetState
