@@ -13,32 +13,37 @@
 #include "link.h"
 #define BOARD_SIZE 6
 
-// Implementation of boolean type
+// Boolean type Implementation
 typedef enum
 {
 	true, false
 } bool;
 
+// Direction type
 typedef enum
 {
 	UP, DOWN, NORTH, EAST, SOUTH, WEST
 } direction;
 
+// Button type
 typedef enum
 {
 	UP_BUTTON, DOWN_BUTTON, LEFT_BUTTON, RIGHT_BUTTON
 } button;
 
+// Coordinates x, y, z of LED
 typedef struct Position
 {
 	int x, y, z;
 } Position;
 
+// Food type
 typedef struct Food
 {
 	Position pos;
 } Food;
 
+// Snake type
 typedef struct Snake 
 {
 	Position pos[BOARD_SIZE * BOARD_SIZE];
@@ -46,6 +51,9 @@ typedef struct Snake
 	int length;
 	direction dir;
 } Snake;
+
+extern Snake snake;
+extern bool is_playing;
 
 void generate_food(Snake*, Food*);			// Generating new position for food
 void init_snake(Snake*);					// Initializing snake with start position, start length, start direction

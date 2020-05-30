@@ -167,6 +167,13 @@ bool move_snake(Snake *snake, Food *food, int *score)
 		snake->pos[snake->length++] = last_pos;
 		generate_food(snake, food);
 		*(score) += 1;
+		// Clear LCD Screen
+		LCD_ClearString(4);
+		LCD_ClearString(6);
+		
+		// Fill LCD Screen with current score message
+		snprintf(score_message, 22, "%s %d", curr_help_message, curr_score);
+		LCD_PutString(score_message, 4);
 	}
 	
 	// Wall hit check
@@ -209,52 +216,15 @@ int play_snake()
 	Food food;
 	generate_food(&snake, &food);
 	
-	bool playing = true;			// Indicates whether the game ended or not
-	int curr_score = 0;
-	const char *quit_message = "Press SEL to Quit";
-	const char *help_message = "Current score:";
-	char *score_message;
-	
-	while (playing) 
+	while (is_playing) 
 	{
 		// Clear cube
 		all_off();
 		
-		// Clear LCD Screen
-		LCD_ClearString(4);
-		LCD_ClearString(6);
-		
-		// Fill LCD Screen with current score message
-		snprintf(score_message, 22, "%s %d", help_message, curr_score);
-		LCD_PutString(score_message, 4);
-		LCD_PutString(quit_message, 6);
-		
-		// Check if any control button is pressed and change snake direction
-		if (MDR_PORTB->RXTX & (1 << 5) == 0)
-		{
-			set_direction(&snake, UP_BUTTON);
-			while (MDR_PORTB->RXTX & (1 << 5) == 0);
-		}
-		else if (MDR_PORTB->RXTX & (1 << 6) == 0)
-		{
-			set_direction(&snake, RIGHT_BUTTON);
-			while (MDR_PORTB->RXTX & (1 << 6) == 0);
-		}
-		else if (MDR_PORTE->RXTX & (1 << 1) == 0)
-		{
-			set_direction(&snake, DOWN_BUTTON);
-			while (MDR_PORTE->RXTX & (1 << 1) == 0);
-		}
-		else if (MDR_PORTE->RXTX & (1 << 3) == 0)
-		{
-			set_direction(&snake, LEFT_BUTTON);
-			while (MDR_PORTE->RXTX & (1 << 3) == 0);
-		}
-		
 		// Move the snake according to its direction
-		playing = move_snake(&snake, &food, &curr_score);
+		is_playing = move_snake(&snake, &food, &curr_score);
 		
-		if (playing == false || MDR_PORTC->RXTX & (1 << 2) == 0)
+		if (is_playing == false)
 		{
 			// Clear cube
 			all_off();
@@ -263,13 +233,19 @@ int play_snake()
 			LCD_ClearString(4);
 			LCD_ClearString(6);
 			
-			while (MDR_PORTC->RXTX & (1 << 2) == 0);
+			LCD_PutString(start_message, 3);
+
+			// Fill LCD Screen with last score message
+			if (last_score != -1)
+			{
+				snprintf(score_message, 22, "%s %d", last_help_message, curr_score);
+				LCD_PutString(score_message, 5);
+			}
 			
 			return curr_score;
 		}
 		else
 		{
-			// 
 			draw_snake(&snake);
 			draw_food(&food);
 		}
@@ -279,3 +255,6 @@ int play_snake()
 	
 	return -1;			// Never happens
 }
+
+bool is_playing = false;
+Snake snake;

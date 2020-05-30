@@ -74,3 +74,149 @@ void BTN_Init(void)
 	MDR_PORTC->PWR    |=  (1 << 4);
 	MDR_PORTC->GFEN   &= ~(1 << 2);
 }
+
+// Поток опроса кнопки DOWN
+void Thread_DownButtonCheck(void *argument)
+{
+	// Цикл проверки
+	while (1)
+	{
+		// Проверка нажатия
+		if ((MDR_PORTE->RXTX & (1 << 1)) == 0 && is_playing)
+		{
+			// Задержка для защиты от дребезга контактов
+			osDelay(10);
+
+			// Подтверждение нажатия
+			if ((MDR_PORTE->RXTX & (1 << 1)) == 0 && is_playing)
+			{
+				set_direction(&snake, DOWN_BUTTON);
+
+				// Ожидание отпускания
+				while ((MDR_PORTE->RXTX & (1 << 1)) == 0)
+					osDelay(25);
+			}
+		}
+
+		// Задержка перед началом следующей проверки
+		osDelay(25);
+	}
+}
+
+// Поток опроса кнопки UP
+void Thread_UpButtonCheck(void *argument)
+{
+	// Цикл проверки
+	while (1)
+	{
+		// Проверка нажатия
+		if ((MDR_PORTB->RXTX & (1 << 5)) == 0 && is_playing)
+		{
+			// Задержка для защиты от дребезга контактов
+			osDelay(10);
+
+			// Подтверждение нажатия
+			if ((MDR_PORTB->RXTX & (1 << 5)) == 0 && is_playing)
+			{
+				set_direction(&snake, UP_BUTTON);
+
+				// Ожидание отпускания
+				while ((MDR_PORTB->RXTX & (1 << 5)) == 0)
+					osDelay(25);
+			}
+		}
+
+		// Задержка перед началом следующей проверки
+		osDelay(25);
+	}
+}
+
+// Поток опроса кнопки SEL
+void Thread_SelectButtonCheck(void *argument)
+{
+	// Цикл проверки
+	while (1)
+	{
+		// Проверка нажатия
+		if ((MDR_PORTC->RXTX & (1 << 2)) == 0 && !is_playing)
+		{
+			// Задержка для защиты от дребезга контактов
+			osDelay(10);
+
+			// Подтверждение нажатия
+			if ((MDR_PORTC->RXTX & (1 << 2)) == 0 && !is_playing)
+			{
+				is_playing = true;
+				// Clear LCD Screen
+				LCD_ClearString(3);
+				LCD_ClearString(5);
+
+				// Start snake game
+				last_score = play_snake();
+
+				// Ожидание отпускания
+				while ((MDR_PORTC->RXTX & (1 << 2)) == 0)
+					osDelay(25);
+			}
+
+			// Задержка перед началом следующей проверки
+			osDelay(25);
+		}
+	}
+}
+
+// Поток опроса кнопки LEFT
+void Thread_LeftButtonCheck(void *argument)
+{
+	// Цикл проверки
+	while (1)
+	{
+		// Проверка нажатия
+		if ((MDR_PORTE->RXTX & (1 << 3)) == 0 && is_playing)
+		{
+			// Задержка для защиты от дребезга контактов
+			osDelay(10);
+
+			// Подтверждение нажатия
+			if ((MDR_PORTE->RXTX & (1 << 3)) == 0 && is_playing)
+			{
+				set_direction(&snake, UP_BUTTON);
+
+				// Ожидание отпускания
+				while ((MDR_PORTE->RXTX & (1 << 3)) == 0)
+					osDelay(25);
+			}
+		}
+
+		// Задержка перед началом следующей проверки
+		osDelay(25);
+	}
+}
+
+// Поток опроса кнопки RIGHT
+void Thread_RightButtonCheck(void *argument)
+{
+	// Цикл проверки
+	while (1)
+	{
+		// Проверка нажатия
+		if ((MDR_PORTB->RXTX & (1 << 6)) == 0 && is_playing)
+		{
+			// Задержка для защиты от дребезга контактов
+			osDelay(10);
+
+			// Подтверждение нажатия
+			if ((MDR_PORTB->RXTX & (1 << 6)) == 0 && is_playing)
+			{
+				set_direction(&snake, RIGHT_BUTTON);
+
+				// Ожидание отпускания
+				while ((MDR_PORTB->RXTX & (1 << 6)) == 0)
+					osDelay(25);
+			}
+		}
+
+		// Задержка перед началом следующей проверки
+		osDelay(25);
+	}
+}

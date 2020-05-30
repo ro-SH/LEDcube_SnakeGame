@@ -8,8 +8,8 @@
  * @Purpose: Библиотека для работы с дисплеем MT-12864J
  *******************************************************************************/
 
-// Подключение основного заголовочного файла
-#include <1986VE9x.h>
+// Standart Peripheral Libraries
+#include "1986VE9x.h"
 
 // Подключение стандартных библиотек языка Си
 #include <stdio.h>
@@ -58,15 +58,15 @@
 // Направления шины данных
 enum
 {
-  OUT = 0,
-  IN  = !OUT
+	OUT = 0,
+	IN  = !OUT
 };
 
 // Направления перемещения строки
 enum
 {
-  LCD_SCROLL_LEFT  = 0,
-  LCD_SCROLL_RIGHT = !LCD_SCROLL_LEFT
+	LCD_SCROLL_LEFT  = 0,
+	LCD_SCROLL_RIGHT = !LCD_SCROLL_LEFT
 };
 
 // Прототипы функций
