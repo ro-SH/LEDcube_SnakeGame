@@ -211,7 +211,6 @@ int play_snake()
 	// clear cube
 	all_off();
 	
-	Snake snake;
 	init_snake(&snake);
 	
 	Food food;
