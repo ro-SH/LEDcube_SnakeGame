@@ -1,13 +1,9 @@
 --cpu Cortex-M3
-".\objects\main.o"
 ".\objects\btn.o"
 ".\objects\lcd.o"
 ".\objects\led.o"
+".\objects\main.o"
 ".\objects\snake.o"
-".\objects\rtos.o"
-"C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\RTX\Library\ARM\RTX_CM3.lib"
-".\objects\rtx_lib.o"
-".\objects\rtx_config.o"
 ".\objects\startup_mdr32f9qx.o"
 ".\objects\system_mdr32f9qx.o"
 --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

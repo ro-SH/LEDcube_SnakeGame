@@ -30,15 +30,20 @@ void switch_on(int x, int y, int z){
 	и вычисление нового состояния выходов на нём*/
 	switch(x){
 		case 0:
-			register_1 += select_led(y); 
+			register_1 += select_led(y);
+			break; 
 		case 1:
-			register_2 += select_led(y); 
+			register_2 += select_led(y);
+			break; 
 		case 2:
 			register_3 += select_led(y); 
+			break;
 		case 3:
 			register_4 += select_led(y); 
+			break;
 		case 4:
 			register_5 += select_led(y);
+			break;
 		case 5:
 			register_6 += select_led(y);
 	}
@@ -56,14 +61,19 @@ void switch_off(int x, int y, int z){
 	switch(x){
 		case 0:
 			register_1 -= select_led(y);
+			break;
 		case 1:
 			register_2 -= select_led(y); 
+			break;
 		case 2:
 			register_3 -= select_led(y);
+			break;
 		case 3:
 			register_4 -= select_led(y);
+			break;
 		case 4:
 			register_5 -= select_led(y);
+			break;
 		case 5:
 			register_6 -= select_led(y);
 	}

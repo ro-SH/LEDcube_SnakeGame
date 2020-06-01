@@ -12,21 +12,15 @@
 // Standart Peripheral Libraries
 #include "1986VE9x.h"
 
-// OCPB
-#include <rtx_os.h>
-
 // Project modules
 #include "btn.h"
 #include "snake.h"
 #include "led.h"
 #include "lcd.h"
-#include "rtos.h"
 
-extern int last_score;
-extern int curr_score;
 extern const char *start_message;
 extern const char *last_help_message;
 extern const char *curr_help_message;
-extern char *score_message;
+extern char score_str[22];
 
 #endif

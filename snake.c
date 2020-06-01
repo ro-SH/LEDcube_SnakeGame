@@ -29,17 +29,19 @@ void generate_food(Snake *snake, Food *food)
 			}
 		}
 	}
+
 }
+
 
 // Fuction to initialize snake with start position, start length, start direction
 void init_snake(Snake *snake)
 {
-	snake->pos[0].x = 2;
-	snake->pos[0].y = 2;
-	snake->pos[0].z = 2;
+	snake->pos[0].x = rand() % BOARD_SIZE;
+	snake->pos[0].y = rand() % BOARD_SIZE;
+	snake->pos[0].z = rand() % BOARD_SIZE;
 	snake->head = &snake->pos[0];
 	snake->length = 1;
-	snake->dir = EAST;
+	snake->dir = WEST;
 }
 
 // Function to change snake direction based on the pressed button/
@@ -142,14 +144,19 @@ bool move_snake(Snake *snake, Food *food, int *score)
 	{
 		case UP:
 			next_pos.z = 1;
+			break;
 		case DOWN:
 			next_pos.z = -1;
+			break;
 		case NORTH:
 			next_pos.y = 1;
+			break;
 		case SOUTH:
 			next_pos.y = -1;
+			break;
 		case EAST:
 			next_pos.x = 1;
+			break;
 		case WEST:
 			next_pos.x = -1;
 	}
@@ -161,31 +168,45 @@ bool move_snake(Snake *snake, Food *food, int *score)
 	snake->head->y += next_pos.y;
 	snake->head->z += next_pos.z;
 	
-	// Check if head coordinates match food coordiantes then increase and generate new food
-	if (snake->head->x == food->pos.x && snake->head->y == food->pos.y && snake->head->z == food->pos.z)
-	{
-		snake->pos[snake->length++] = last_pos;
-		generate_food(snake, food);
-		*(score) += 1;
-		// Clear LCD Screen
-		LCD_ClearString(4);
-		LCD_ClearString(6);
-		
-		// Fill LCD Screen with current score message
-		snprintf(score_message, 22, "%s %d", curr_help_message, curr_score);
-		LCD_PutString(score_message, 4);
-	}
-	
 	// Wall hit check
 	if (snake->head->x < 0 || snake->head->x >= BOARD_SIZE || snake->head->y < 0 || \
 		snake->head->y >= BOARD_SIZE || snake->head->z < 0 || snake->head->z >= BOARD_SIZE)
+
 		return false;
 	
 	// Self hit check
-	for (int i = 0; i < snake->length; ++i) 
+	for (int i = 1; i < snake->length; ++i) 
 	{
-		if (snake->head->x == snake->pos[i].x || snake->head->y == snake->pos[i].y || snake->head->z == snake->pos[i].z) 
+		if (snake->head->x == snake->pos[i].x && snake->head->y == snake->pos[i].y && snake->head->z == snake->pos[i].z) 
 			return false;
+	}
+	// Check if head coordinates match food coordiantes then increase and generate new food
+	if (snake->head->x == food->pos.x && snake->head->y == food->pos.y && snake->head->z == food->pos.z)
+	{
+		// Increase snake length
+		snake->pos[snake->length] = last_pos;
+		snake->length += 1;
+		
+		// Initialize new food
+		generate_food(snake, food);
+		draw_food(food);
+		
+		// Update score
+		*score += 1;
+		
+		// Clear LCD Screen
+		LCD_ClearString(5);
+		LCD_ClearString(6);
+		
+		// Fill LCD Screen with current score message
+		sprintf(score_str, "               %d", *score);
+		LCD_PutString(curr_help_message, 5);
+		LCD_PutString(score_str, 6);
+	}
+	else
+	{
+		switch_off(last_pos.x, last_pos.y, last_pos.z);
+		switch_on(snake->head->x, snake->head->y, last_pos.z);
 	}
 	return true;
 }
@@ -205,21 +226,72 @@ void draw_food(Food *food)
 	switch_on(food->pos.x, food->pos.y, food->pos.z);
 }
 
+void check_buttons(Snake *snake)
+{
+	// Check DOWN button press
+	if ((MDR_PORTE->RXTX & (1 << 1)) == 0)
+	{
+		set_direction(snake, DOWN_BUTTON);
+
+		while ((MDR_PORTE->RXTX & (1 << 1)) == 0);
+	}
+	// Check UP button press
+	else if ((MDR_PORTB->RXTX & (1 << 5)) == 0)
+	{
+		set_direction(snake, UP_BUTTON);
+
+		while ((MDR_PORTB->RXTX & (1 << 5)) == 0);
+	}
+	// Check RIGHT button press
+	else if ((MDR_PORTB->RXTX & (1 << 6)) == 0)
+	{
+		set_direction(snake, RIGHT_BUTTON);
+
+		while ((MDR_PORTB->RXTX & (1 << 6)) == 0);
+	}
+	// Check LEFT button press
+	else if ((MDR_PORTE->RXTX & (1 << 3)) == 0)
+	{
+		set_direction(snake, LEFT_BUTTON);
+
+		while ((MDR_PORTE->RXTX & (1 << 3)) == 0);
+	}
+}
+
 // Function to start new snake game
 int play_snake() 
 {
 	// clear cube
 	all_off();
 	
+	// Initializing snake
+	Snake snake;
 	init_snake(&snake);
 	
+	// Initializing food
 	Food food;
 	generate_food(&snake, &food);
 	
-	while (is_playing) 
-	{
-		// Clear cube
-		all_off();
+	draw_snake(&snake);
+	draw_food(&food);
+
+	int curr_score = 1;
+	
+	// Fill LCD Screen with current score message
+	sprintf(score_str, "               %d", curr_score);
+	LCD_PutString(curr_help_message, 5);
+	LCD_PutString(score_str, 6);
+	
+	// Main game loop
+	while (is_playing == true) 
+	{	
+		// Check buttons pressing
+		delay();	
+		check_buttons(&snake);
+		delay();
+		check_buttons(&snake);
+		delay();
+		check_buttons(&snake);
 		
 		// Move the snake according to its direction
 		is_playing = move_snake(&snake, &food, &curr_score);
@@ -229,38 +301,17 @@ int play_snake()
 			// Clear cube
 			all_off();
 			
-			// Clear LCD Screen
-			LCD_ClearString(4);
-			LCD_ClearString(6);
-			
-			LCD_PutString(start_message, 3);
-
-			// Fill LCD Screen with last score message
-			if (last_score != -1)
-			{
-				snprintf(score_message, 22, "%s %d", last_help_message, curr_score);
-				LCD_PutString(score_message, 5);
-			}
-			
 			return curr_score;
 		}
-		else
-		{
-			draw_snake(&snake);
-			draw_food(&food);
-		}
-		
-		delay();
 	}
 	
 	return -1;			// Never happens
 }
 
 void delay() {
-	    for(uint32_t i = 1000000; i!=0; i--){
+	    for(uint32_t i = 500000; i!=0; i--){
 			__NOP;//пустая команда, чтобы компилятор не соптимизировал цикл
 		}
 }
 
 bool is_playing = false;
-Snake snake;

@@ -52,7 +52,6 @@ typedef struct Snake
 	direction dir;
 } Snake;
 
-extern Snake snake;
 extern bool is_playing;
 
 void generate_food(Snake*, Food*);			// Generating new position for food
@@ -61,6 +60,7 @@ void set_direction(Snake*, button);			// Changing snake direction
 bool move_snake(Snake*, Food*, int*);		// Moving snake
 void draw_snake(Snake*);					// Light snake position light-emitting diods
 void draw_food(Food*);						// Light food position light-emitting diod
+void check_buttons(Snake*);
 int play_snake(void);						// Start new game
 void delay(void);							// Delay
 
